@@ -1,0 +1,20 @@
+{
+  "name": "airtable-sync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "node": "node index.mjs",
+    "dev": "nodemon index.mjs"
+  },
+  "author": "Abdur Rahman",
+  "license": "ISC",
+  "dependencies": {
+    "airtable": "^0.11.1",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
