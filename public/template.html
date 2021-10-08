@@ -759,9 +759,15 @@
             console.log(data);
             $('#property_address').html(data['Property Address'])
             $('#roof_unlabeled').attr("src", data['Roof Unlabeled'][0].url)
+            $('#front_view').attr("src", data['Front View'][0].url)
             $('#roof_labeled').attr("src", data['Roof Labeled'][0].url)
             $('#hail_of_impact').html(data['# of Hail Impacts']);
             $('#moisture_exposure').attr("src", data['Moisture Exposure'][0].url)
+            $('#HI-1').attr("src", data['HI-1'][0].url)
+            $('#HI-2').attr("src", data['HI-2'][0].url)
+            $('#HI-3').attr("src", data['HI-3'][0].url)
+            $('#SG-1').attr("src", data['SG-1'][0].url)
+            $('#SM-1').attr("src", data['SM-1'][0].url)
         });
     </script>
 
