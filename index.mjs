@@ -28,4 +28,4 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'home.html'))
 })
 
-app.listen(4001, () => console.log(`Listening on Port 4001`));
+app.listen(process.env.PORT || 4001, () => console.log(`Listening on Port 4001`));
