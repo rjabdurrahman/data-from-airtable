@@ -11,7 +11,7 @@ app.get('/api/:id', async(req, res) => {
     try {
         const baseFA = airtable('app4MqGYcYLzCIZTb')
         const rows = await baseFA('Table 1').select().all()
-        const selectedRow = rows.map(x => x.fields).find(x => x['URL'] == req.params.id)
+        const selectedRow = rows.map(x => x.fields).find(x => x['URL'] == 'intelligence.remoteroofing.com' + '/' + req.params.id)
         res.json(selectedRow)
     } catch (err) {
         console.log(err.message);
