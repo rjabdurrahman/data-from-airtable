@@ -398,13 +398,7 @@
                         <!-- slider -->
                         <ul class="slider rounded margin-top-4 autoHeight clickable shadow ae-1" data-slider-id="22-6">
                             <li class="wide selected">
-                                <div class="outsideWrapper">
-                                    <div class="insideWrapper">
-                                        <img src="" id="roof_unlabeled" class="wide" alt="Image" />
-                                        <canvas id="canvas" height="300px" width="250px">This browser does not
-                                            support canvas</canvas>
-                                    </div>
-                                </div>
+                                <img src="" id="roof_unlabeled" class="wide" alt="Image" />
                             </li>
                             <li class="wide"><img src="" class="wide" alt="Image" id="front_view" /></li>
                         </ul>
@@ -449,8 +443,15 @@
                             </li>
                             <li class="col-7-12">
                                 <div class="popupTrigger" data-popup-id="open">
-                                    <img class="ae-4 margin-bottom-tablet-4" width="600" styles="margin:-28% 0" src=""
-                                        id="roof_labeled" alt="iPhones Thumbnail" />
+                                    <div class="outsideWrapper">
+                                        <div class="insideWrapper">
+                                            <!-- <img src="" id="roof_unlabeled" class="wide" alt="Image" /> -->
+                                            <img class="ae-4 margin-bottom-tablet-4" width="600" styles="margin:-28% 0"
+                                                src="" id="roof_labeled" alt="iPhones Thumbnail" />
+                                            <canvas id="canvas" height="300px" width="250px">This browser does not
+                                                support canvas</canvas>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -815,9 +816,10 @@
             console.log(data);
             $('#property_address').html(data['Property Address'])
             $('#roof_unlabeled').attr("src", data['Roof Unlabeled'][0].url)
-            randomize1(Number(data['# of Hail Impacts']));
             $('#front_view').attr("src", data['Front View'][0].url)
-            $('#roof_labeled').attr("src", data['Roof Labeled'][0].url)
+            // $('#roof_labeled').attr("src", data['Roof Labeled'][0].url)
+            $('#roof_labeled').attr("src", data['Roof Unlabeled'][0].url)
+            randomize1(Number(data['# of Hail Impacts']));
             $('#hail_of_impact').html(data['# of Hail Impacts']);
             $('#moisture_exposure').attr("src", data['Moisture Exposure'][0].url)
             $('#HI-1').attr("src", data['HI-1'][0].url)
