@@ -32,6 +32,30 @@
         type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdn.rawgit.com/zurb/twentytwenty/7bd49268/css/twentytwenty.css" type="text/css"
         media="screen" />
+    <style>
+        #canvas {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .outsideWrapper {
+            width: 550px;
+            height: 350px;
+        }
+
+        .insideWrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .img {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
 </head>
 
 <body class="slides stack animated noPreload">
@@ -366,13 +390,22 @@
                         <br>
                         <h5 class="ae-4 fromCenter" style="color:#C4C4C4; float: left"><img
                                 src="assets/uploads/download122968.png?p=Mq5D1L8f" width="35px" height="30px"
-                                style="float: left; padding: 2px 6px 0px 0px" class="ae-4 fromCenter"><b id="property_address"></b></h5>
+                                style="float: left; padding: 2px 6px 0px 0px" class="ae-4 fromCenter"><b
+                                id="property_address"></b></h5>
 
                         <br>
 
                         <!-- slider -->
                         <ul class="slider rounded margin-top-4 autoHeight clickable shadow ae-1" data-slider-id="22-6">
-                            <li class="wide selected"><img src="" id="roof_unlabeled" class="wide" alt="Image" /></li>
+                            <li class="wide selected">
+                                <div class="outsideWrapper">
+                                    <div class="insideWrapper">
+                                        <img src="" id="roof_unlabeled" class="wide" alt="Image" />
+                                        <canvas id="canvas" height="300px" width="250px">This browser does not
+                                            support canvas</canvas>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="wide"><img src="" class="wide" alt="Image" id="front_view" /></li>
                         </ul>
 
@@ -754,11 +787,35 @@
 
     <script>
         let pId = location.href.split("/").pop().replace('#three-js', '');
-        console.log(pId)
-        $.get("/api/"  + pId, function (data, status) {
+        var c, ctx;
+
+        function randomize() {
+            c = document.getElementById("canvas");
+            ctx = c.getContext("2d");
+            var rr = 5;
+            var rx = Math.ceil(300 * Math.random());
+            var ry = Math.ceil(400 * Math.random());
+            drawCircle(rx, ry, rr);
+        }
+
+        function drawCircle(rx, ry, rr) {
+            ctx.strokeStyle = "#237ed9";
+            ctx.beginPath();
+            ctx.arc(rx, ry, rr, 0, 2 * Math.PI);
+            ctx.stroke();
+            ctx.moveTo(95, 15);
+            ctx.closePath();
+        }
+
+        function randomize1(hits) {
+            for (var i = 1; i < hits; i++) randomize(i);
+        }
+
+        $.get("/api/" + pId, function (data, status) {
             console.log(data);
             $('#property_address').html(data['Property Address'])
             $('#roof_unlabeled').attr("src", data['Roof Unlabeled'][0].url)
+            randomize1(Number(data['# of Hail Impacts']));
             $('#front_view').attr("src", data['Front View'][0].url)
             $('#roof_labeled').attr("src", data['Roof Labeled'][0].url)
             $('#hail_of_impact').html(data['# of Hail Impacts']);
