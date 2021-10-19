@@ -868,7 +868,7 @@
         $(window).on('slideChange', function (event, number, element) {
 
             //set the sequence of the effects for your slides
-            var effectSequence = ['stack', 'zoom', 'zoom', 'stack'];
+            var effectSequence = ['stack', 'zoom', 'zoom', 'stack', 'stack', 'stack', 'stack', 'stack'];
 
             setTimeout(function () {
                 $('body').removeClass('stack zoom zoom stack').addClass(effectSequence[number - 1]);
