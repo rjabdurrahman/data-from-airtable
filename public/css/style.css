@@ -135,7 +135,7 @@
 }
 
 .new-slides .next-slides .rightb p:first-of-type {
-  margin-bottom: 4px;
+  margin-bottom: 0;
 }
 
 .new-slides .next-slides .rightb p:last-of-type {

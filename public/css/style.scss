@@ -84,7 +84,7 @@
         font-size: clamp(14px, 2vw, 30px);
         color: #757575;
         &:first-of-type {
-          margin-bottom: 4px;
+          margin-bottom: 0;
         }
         &:last-of-type {
           margin-bottom: clamp(26px, 3vw, 40px);
