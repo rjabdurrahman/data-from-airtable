@@ -115,12 +115,11 @@
   font-style: normal;
   font-weight: 800;
   font-size: clamp(20px, 3vw, 40px);
-  line-height: clamp(25px, 4vw, 52px);
   color: black;
 }
 
 .new-slides .next-slides .rightb h2:first-of-type {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .new-slides .next-slides .rightb h2:last-of-type {
@@ -130,7 +129,8 @@
 .new-slides .next-slides .rightb p {
   text-align: left;
   margin: 0;
-  font-size: clamp(12px, 1.2vw, 25px);
+  font-size: clamp(12px, 2vw, 25px);
+  line-height: 32px;
   font-family: "Airbnb Cereal App Bold";
   font-style: normal;
   font-weight: normal;
