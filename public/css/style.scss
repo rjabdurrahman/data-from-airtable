@@ -81,7 +81,10 @@
       p {
         text-align: left;
         margin: 0;
-        font-size: clamp(14px, 2vw, 30px);
+        font-size: clamp(12px, 1.2vw, 25px);
+        font-family: "Airbnb Cereal App Bold";
+        font-style: normal;
+        font-weight: normal;
         color: #757575;
         &:first-of-type {
           margin-bottom: 0;
